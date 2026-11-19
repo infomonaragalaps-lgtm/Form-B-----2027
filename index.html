@@ -2,20 +2,172 @@
 <html lang="si">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ග්‍රාමීය සංවර්ධන සමීක්ෂණය - 2027</title>
 <style>
-  body { font-family: 'Noto Sans Sinhala', sans-serif; background: #f0fdf4; color: #1e293b; margin: 0; padding: 14px; }
-  .container { max-width: 680px; margin: 0 auto; background: #fff; border-radius: 10px; padding: 20px; border-top: 6px solid #064e3b; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-  h1 { color: #064e3b; font-size: 1.35rem; text-align: center; margin-bottom: 4px; }
-  .sub { text-align: center; color: #475569; font-size: 0.9rem; margin-bottom: 18px; }
-  .sec-title { background: #ecfdf5; color: #064e3b; font-weight: bold; padding: 8px 12px; border-left: 4px solid #064e3b; margin: 18px 0 12px 0; border-radius: 4px; }
-  label { display: block; font-weight: 600; margin-top: 10px; font-size: 0.92rem; }
-  input[type="text"], input[type="number"], select, textarea { width: 100%; padding: 9px; margin-top: 4px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box; background: #fff; }
-  .cb-group { margin-top: 6px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .cb-item { font-weight: normal; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; }
-  .btn { background: #064e3b; color: #fff; border: none; padding: 12px 18px; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; width: 100%; margin-top: 16px; }
-  .btn-secondary { background: #0f766e; font-size: 0.85rem; padding: 8px 12px; width: auto; margin-top: 8px; }
-  .saved-banner { background: #d1fae5; border: 1px solid #059669; padding: 12px; border-radius: 6px; margin-bottom: 12px; }
-  .sub-box { background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px; border-radius: 6px; margin-top: 10px; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans Sinhala', sans-serif;
+    background: #f0fdf4;
+    color: #1e293b;
+    margin: 0;
+    padding: 12px;
+    line-height: 1.45;
+    overflow-x: hidden;
+  }
+  .container {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px;
+    border-top: 6px solid #064e3b;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  h1 {
+    color: #064e3b;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+  }
+  .sub {
+    text-align: center;
+    color: #475569;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+  .sec-title {
+    background: #ecfdf5;
+    color: #064e3b;
+    font-weight: bold;
+    padding: 9px 12px;
+    border-left: 4px solid #064e3b;
+    margin: 18px 0 12px 0;
+    border-radius: 4px;
+    font-size: 0.98rem;
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    margin-top: 12px;
+    font-size: 0.94rem;
+    overflow-wrap: anywhere;
+  }
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 12px;
+    margin-top: 5px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    background: #fff;
+    color: #1e293b;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #0f766e;
+    box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.15);
+  }
+  .cb-group {
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .cb-item {
+    font-weight: normal;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 0;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    line-height: 1.35;
+  }
+  .cb-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    margin: 1px 0 0 0;
+    accent-color: #064e3b;
+    cursor: pointer;
+  }
+  .btn {
+    background: #064e3b;
+    color: #fff;
+    border: none;
+    padding: 13px 18px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 16px;
+    min-height: 44px;
+  }
+  .btn:hover { background: #04392b; }
+  .btn:disabled { opacity: 0.7; cursor: not-allowed; }
+  .btn-secondary {
+    background: #0f766e;
+    font-size: 0.9rem;
+    padding: 9px 14px;
+    width: auto;
+    max-width: 100%;
+    margin-top: 10px;
+  }
+  .btn-secondary:hover { background: #115e59; }
+  .saved-banner {
+    background: #d1fae5;
+    border: 1px solid #059669;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+  }
+  .sub-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 8px; }
+    .container {
+      padding: 14px 12px;
+      border-radius: 8px;
+    }
+    h1 { font-size: 1.18rem; }
+    .sub { font-size: 0.85rem; margin-bottom: 14px; }
+    .sec-title { font-size: 0.92rem; padding: 8px 10px; }
+    .cb-group {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+    .cb-item {
+      padding: 8px 10px;
+      font-size: 0.92rem;
+    }
+    .btn-secondary {
+      width: 100%;
+      text-align: center;
+    }
+  }
 </style>
 </head>
 <body>
@@ -91,13 +243,13 @@
 
     <label>9. අලුත්වැඩියා කළ යුතු හෝ අලුතින් ඉදිකළ යුතු ඉදිකිරීම් තෝරන්න:</label>
     <div class="cb-group" id="structGroup">
-      <label class="cb-item"><input type="checkbox" value="1. සපත්තු පාලම්" onchange="toggleQ9Details()"> 1. සපත්තු පාලම්</label>
-      <label class="cb-item"><input type="checkbox" value="2. බෝක්කු" onchange="toggleQ9Details()"> 2. බෝක්කු</label>
-      <label class="cb-item"><input type="checkbox" value="3. කල්වට් බෝක්කු" onchange="toggleQ9Details()"> 3. කල්වට් බෝක්කු</label>
-      <label class="cb-item"><input type="checkbox" value="4. පාලම්" onchange="toggleQ9Details()"> 4. පාලම්</label>
-      <label class="cb-item"><input type="checkbox" value="5. පැති බැමි / කාණු පද්ධති" onchange="toggleQ9Details()"> 5. පැති බැමි / කාණු පද්ධති</label>
-      <label class="cb-item"><input type="checkbox" value="6. ඒදඬු" onchange="toggleQ9Details()"> 6. ඒදඬු</label>
-      <label class="cb-item"><input type="checkbox" value="7. මාර්ග කාපට් / කොන්ක්‍රීට් කිරීම" onchange="toggleQ9Details()"> 7. මාර්ග කොන්ක්‍රීට්/කාපට්</label>
+      <label class="cb-item"><input type="checkbox" value="1. සපත්තු පාලම්" onchange="toggleQ9Details()"> <span>1. සපත්තු පාලම්</span></label>
+      <label class="cb-item"><input type="checkbox" value="2. බෝක්කු" onchange="toggleQ9Details()"> <span>2. බෝක්කු</span></label>
+      <label class="cb-item"><input type="checkbox" value="3. කල්වට් බෝක්කු" onchange="toggleQ9Details()"> <span>3. කල්වට් බෝක්කු</span></label>
+      <label class="cb-item"><input type="checkbox" value="4. පාලම්" onchange="toggleQ9Details()"> <span>4. පාලම්</span></label>
+      <label class="cb-item"><input type="checkbox" value="5. පැති බැමි / කාණු පද්ධති" onchange="toggleQ9Details()"> <span>5. පැති බැමි / කාණු පද්ධති</span></label>
+      <label class="cb-item"><input type="checkbox" value="6. ඒදඬු" onchange="toggleQ9Details()"> <span>6. ඒදඬු</span></label>
+      <label class="cb-item"><input type="checkbox" value="7. මාර්ග කාපට් / කොන්ක්‍රීට් කිරීම" onchange="toggleQ9Details()"> <span>7. මාර්ග කොන්ක්‍රීට්/කාපට්</span></label>
     </div>
 
     <div id="q9Details" class="sub-box" style="display:none;">
@@ -118,11 +270,11 @@
 
     <label>10(අ). ගමට පවතින පොදු පානීය ජල මූලාශ්‍ර</label>
     <div class="cb-group" id="waterGroup">
-      <label class="cb-item"><input type="checkbox" value="ජාතික ජල සම්පාදන නල ජලය"> ජාතික ජල සම්පාදන නල ජලය</label>
-      <label class="cb-item"><input type="checkbox" value="ප්‍රජා ජල ව්‍යාපෘති"> ප්‍රජා ජල ව්‍යාපෘති</label>
-      <label class="cb-item"><input type="checkbox" value="RO ජල පෙරහන් මධ්‍යස්ථාන"> RO ජල පෙරහන් මධ්‍යස්ථාන</label>
-      <label class="cb-item"><input type="checkbox" value="පොදු ළිං / නළ ළිං"> පොදු ළිං / නළ ළිං</label>
-      <label class="cb-item"><input type="checkbox" value="ස්වභාවික උල්පත් / වැව්"> ස්වභාවික උල්පත් / වැව්</label>
+      <label class="cb-item"><input type="checkbox" value="ජාතික ජල සම්පාදන නල ජලය"> <span>ජාතික ජල සම්පාදන නල ජලය</span></label>
+      <label class="cb-item"><input type="checkbox" value="ප්‍රජා ජල ව්‍යාපෘති"> <span>ප්‍රජා ජල ව්‍යාපෘති</span></label>
+      <label class="cb-item"><input type="checkbox" value="RO ජල පෙරහන් මධ්‍යස්ථාන"> <span>RO ජල පෙරහන් මධ්‍යස්ථාන</span></label>
+      <label class="cb-item"><input type="checkbox" value="පොදු ළිං / නළ ළිං"> <span>පොදු ළිං / නළ ළිං</span></label>
+      <label class="cb-item"><input type="checkbox" value="ස්වභාවික උල්පත් / වැව්"> <span>ස්වභාවික උල්පත් / වැව්</span></label>
     </div>
 
     <label>10(ආ). පානීය ජලය නොමැති පවුල් සංඛ්‍යාව *</label>
@@ -145,14 +297,14 @@
 
     <label>14. ගම තුළ දැනට පවතින පොදු පහසුකම්</label>
     <div class="cb-group" id="facilityGroup">
-      <label class="cb-item"><input type="checkbox" value="පාසලක්"> පාසලක්</label>
-      <label class="cb-item"><input type="checkbox" value="පෙර පාසලක්"> පෙර පාසලක්</label>
-      <label class="cb-item"><input type="checkbox" value="ප්‍රජා ශාලාවක්"> ප්‍රජා ශාලාවක්</label>
-      <label class="cb-item"><input type="checkbox" value="ග්‍රාමීය රෝහලක් / සායනයක්"> ග්‍රාමීය රෝහලක් / සායනයක්</label>
-      <label class="cb-item"><input type="checkbox" value="පුස්තකාලයක් / ක්‍රීඩා පිටියක්"> පුස්තකාලයක් / ක්‍රීඩා පිටියක්</label>
-      <label class="cb-item"><input type="checkbox" value="කෘෂි / කිරි එකතු කිරීමේ මධ්‍යස්ථානයක්"> කෘෂි / කිරි මධ්‍යස්ථානයක්</label>
-      <label class="cb-item"><input type="checkbox" value="පොදු සුසාන භූමියක්"> පොදු සුසාන භූමියක්</label>
-      <label class="cb-item"><input type="checkbox" value="ආගමික ස්ථාන"> ආගමික ස්ථාන</label>
+      <label class="cb-item"><input type="checkbox" value="පාසලක්"> <span>පාසලක්</span></label>
+      <label class="cb-item"><input type="checkbox" value="පෙර පාසලක්"> <span>පෙර පාසලක්</span></label>
+      <label class="cb-item"><input type="checkbox" value="ප්‍රජා ශාලාවක්"> <span>ප්‍රජා ශාලාවක්</span></label>
+      <label class="cb-item"><input type="checkbox" value="ග්‍රාමීය රෝහලක් / සායනයක්"> <span>ග්‍රාමීය රෝහලක් / සායනයක්</span></label>
+      <label class="cb-item"><input type="checkbox" value="පුස්තකාලයක් / ක්‍රීඩා පිටියක්"> <span>පුස්තකාලයක් / ක්‍රීඩා පිටියක්</span></label>
+      <label class="cb-item"><input type="checkbox" value="කෘෂි / කිරි එකතු කිරීමේ මධ්‍යස්ථානයක්"> <span>කෘෂි / කිරි මධ්‍යස්ථානයක්</span></label>
+      <label class="cb-item"><input type="checkbox" value="පොදු සුසාන භූමියක්"> <span>පොදු සුසාන භූමියක්</span></label>
+      <label class="cb-item"><input type="checkbox" value="ආගමික ස්ථාන"> <span>ආගමික ස්ථාන</span></label>
     </div>
 
     <label>15. ගමට අත්‍යවශ්‍යම නමුත් දැනට නොමැති පොදු පහසුකම්</label>
@@ -160,12 +312,12 @@
 
     <label>16. ගමට බලපාන ප්‍රධාන ස්වභාවික ආපදා / ගැටලු</label>
     <div class="cb-group" id="disasterGroup">
-      <label class="cb-item"><input type="checkbox" value="දැඩි නියඟය"> දැඩි නියඟය</label>
-      <label class="cb-item"><input type="checkbox" value="ගංවතුර"> ගංවතුර</label>
-      <label class="cb-item"><input type="checkbox" value="නායයෑම් අවදානම"> නායයෑම් අවදානම</label>
-      <label class="cb-item"><input type="checkbox" value="අලි - මිනිස් ගැටුම"> අලි - මිනිස් ගැටුම</label>
-      <label class="cb-item"><input type="checkbox" value="වන සතුන්ගෙන් වගා හානි"> වන සතුන්ගෙන් වගා හානි</label>
-      <label class="cb-item"><input type="checkbox" value="විශේෂ ආපදා නොමැත"> විශේෂ ආපදා නොමැත</label>
+      <label class="cb-item"><input type="checkbox" value="දැඩි නියඟය"> <span>දැඩි නියඟය</span></label>
+      <label class="cb-item"><input type="checkbox" value="ගංවතුර"> <span>ගංවතුර</span></label>
+      <label class="cb-item"><input type="checkbox" value="නායයෑම් අවදානම"> <span>නායයෑම් අවදානම</span></label>
+      <label class="cb-item"><input type="checkbox" value="අලි - මිනිස් ගැටුම"> <span>අලි - මිනිස් ගැටුම</span></label>
+      <label class="cb-item"><input type="checkbox" value="වන සතුන්ගෙන් වගා හානි"> <span>වන සතුන්ගෙන් වගා හානි</span></label>
+      <label class="cb-item"><input type="checkbox" value="විශේෂ ආපදා නොමැත"> <span>විශේෂ ආපදා නොමැත</span></label>
     </div>
 
     <label>17. ගමට කඩිනමින් ඉටුවිය යුතු ප්‍රමුඛතම සංවර්ධන අවශ්‍යතා 03 (1, 2, 3 ලෙස) *</label>
