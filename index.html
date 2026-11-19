@@ -3,352 +3,501 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ග්‍රාමීය සංවර්ධන සමීක්ෂණය - 2027</title>
+<title>ප්‍රජා කුටුම්භ සමීක්ෂණය - 2027</title>
+<!-- Bootstrap 5 CSS & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; }
   body {
     font-family: 'Noto Sans Sinhala', sans-serif;
-    background: #f0fdf4;
+    background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 50%, #fef3c7 100%);
+    min-height: 100vh;
     color: #1e293b;
-    margin: 0;
-    padding: 12px;
-    line-height: 1.45;
-    overflow-x: hidden;
+    padding: 14px 10px 40px 10px;
   }
-  .container {
-    width: 100%;
-    max-width: 680px;
+  .main-wrapper {
+    max-width: 760px;
     margin: 0 auto;
-    background: #fff;
-    border-radius: 10px;
-    padding: 18px;
-    border-top: 6px solid #064e3b;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   }
-  h1 {
-    color: #064e3b;
-    font-size: 1.3rem;
+  .hero-header {
+    background: linear-gradient(135deg, #065f46 0%, #0d9488 55%, #0284c7 100%);
+    color: #ffffff;
+    border-radius: 16px;
+    padding: 24px 18px;
     text-align: center;
-    margin: 0 0 4px 0;
-    line-height: 1.3;
+    box-shadow: 0 10px 25px rgba(6, 95, 70, 0.22);
+    margin-bottom: 20px;
   }
-  .sub {
-    text-align: center;
-    color: #475569;
-    font-size: 0.9rem;
-    margin-bottom: 12px;
+  .hero-header h1 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin-bottom: 6px;
   }
-  .counter-badge {
-    background: #d1fae5;
-    color: #064e3b;
-    border: 1px solid #059669;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 0 auto 16px auto;
-    display: block;
-    width: fit-content;
-    max-width: 100%;
+  .hero-sub {
+    font-size: 0.95rem;
+    opacity: 0.92;
+    margin-bottom: 14px;
   }
-  .sec-title {
-    background: #ecfdf5;
-    color: #064e3b;
-    font-weight: bold;
-    padding: 9px 12px;
-    border-left: 4px solid #064e3b;
-    margin: 18px 0 12px 0;
-    border-radius: 4px;
-    font-size: 0.98rem;
+  .counter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
   }
-  label {
-    display: block;
-    font-weight: 600;
-    margin-top: 12px;
-    font-size: 0.94rem;
-    overflow-wrap: anywhere;
-  }
-  input[type="text"],
-  input[type="number"],
-  select,
-  textarea {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px 12px;
-    margin-top: 5px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-size: 16px;
-    font-family: inherit;
-    background: #fff;
+  .counter-pill .badge-num {
+    background: #facc15;
     color: #1e293b;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 800;
   }
-  input:focus,
-  select:focus,
-  textarea:focus {
-    outline: none;
-    border-color: #0f766e;
-    box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.15);
+
+  /* Section Cards */
+  .section-card {
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+    margin-bottom: 20px;
+    overflow: hidden;
+    background: #ffffff;
   }
-  .cb-group {
-    margin-top: 8px;
+  .sec-header-1 {
+    background: linear-gradient(90deg, #059669, #10b981);
+    color: #fff;
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 1.02rem;
+  }
+  .sec-header-2 {
+    background: linear-gradient(90deg, #0284c7, #06b6d4);
+    color: #fff;
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 1.02rem;
+  }
+  .sec-header-3 {
+    background: linear-gradient(90deg, #7c3aed, #db2777);
+    color: #fff;
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 1.02rem;
+  }
+
+  .form-label {
+    font-weight: 600;
+    color: #1e293b;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+  }
+  .form-control, .form-select {
+    border-radius: 8px;
+    border: 1.5px solid #cbd5e1;
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+  .form-control:focus, .form-select:focus {
+    border-color: #0d9488;
+    box-shadow: 0 0 0 0.2rem rgba(13, 148, 136, 0.18);
+  }
+
+  /* Checkbox Cards */
+  .cb-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
+    margin-top: 6px;
   }
-  .cb-item {
-    font-weight: normal;
-    font-size: 0.92rem;
+  .cb-card {
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    margin-top: 0;
-    padding: 6px 8px;
-    border-radius: 6px;
     background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 10px;
     cursor: pointer;
-    line-height: 1.35;
+    font-size: 0.92rem;
+    transition: all 0.15s ease;
+    margin: 0;
   }
-  .cb-item input[type="checkbox"] {
+  .cb-card:hover {
+    background: #f0fdfa;
+    border-color: #14b8a6;
+  }
+  .cb-card input[type="checkbox"] {
     width: 18px;
     height: 18px;
     min-width: 18px;
-    margin: 1px 0 0 0;
-    accent-color: #064e3b;
-    cursor: pointer;
+    margin-top: 2px;
+    accent-color: #0d9488;
   }
-  .btn {
-    background: #064e3b;
-    color: #fff;
-    border: none;
-    padding: 13px 18px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: bold;
-    font-family: inherit;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 16px;
-    min-height: 44px;
+
+  /* Dynamic Sub Boxes */
+  .dynamic-box-blue {
+    background: #f0f9ff;
+    border: 1.5px dashed #38bdf8;
+    border-radius: 10px;
+    padding: 14px;
+    margin-top: 12px;
   }
-  .btn:hover { background: #04392b; }
-  .btn:disabled { opacity: 0.7; cursor: not-allowed; }
-  .btn-secondary {
-    background: #0f766e;
-    font-size: 0.9rem;
-    padding: 9px 14px;
-    width: auto;
-    max-width: 100%;
-    margin-top: 10px;
+  .dynamic-box-amber {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 10px;
+    padding: 14px;
+    margin-top: 12px;
   }
-  .btn-secondary:hover { background: #115e59; }
-  .saved-banner {
-    background: #d1fae5;
-    border: 1px solid #059669;
-    padding: 12px;
-    border-radius: 6px;
-    margin-bottom: 12px;
-    overflow-wrap: anywhere;
-  }
-  .sub-box {
-    background: #f8fafc;
-    border: 1px solid #cbd5e1;
-    padding: 12px;
-    border-radius: 6px;
+  .dynamic-box-purple {
+    background: #faf5ff;
+    border: 1.5px solid #d8b4fe;
+    border-radius: 10px;
+    padding: 14px;
     margin-top: 10px;
   }
 
+  /* Attractive Submit Button */
+  .btn-submit-gradient {
+    background: linear-gradient(135deg, #059669 0%, #0284c7 50%, #7c3aed 100%);
+    background-size: 200% auto;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 22px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
+    transition: 0.3s ease;
+  }
+  .btn-submit-gradient:hover {
+    background-position: right center;
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+  .btn-submit-gradient:disabled {
+    opacity: 0.75;
+    transform: none;
+  }
+
+  .saved-banner {
+    background: linear-gradient(90deg, #d1fae5, #ecfdf5);
+    border: 1.5px solid #10b981;
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: #065f46;
+  }
+
   @media (max-width: 600px) {
-    body { padding: 8px; }
-    .container {
-      padding: 14px 12px;
-      border-radius: 8px;
-    }
-    h1 { font-size: 1.18rem; }
-    .sub { font-size: 0.85rem; margin-bottom: 10px; }
-    .counter-badge { font-size: 0.85rem; padding: 7px 12px; margin-bottom: 14px; }
-    .sec-title { font-size: 0.92rem; padding: 8px 10px; }
-    .cb-group {
-      grid-template-columns: 1fr;
-      gap: 6px;
-    }
-    .cb-item {
-      padding: 8px 10px;
-      font-size: 0.92rem;
-    }
-    .btn-secondary {
-      width: 100%;
-      text-align: center;
-    }
+    .hero-header h1 { font-size: 1.3rem; }
+    .cb-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>ග්‍රාමීය සංවර්ධන සමීක්ෂණය - 2027</h1>
-  <div class="sub">පත්‍රිකා B: ගමේ පොදු යටිතල පහසුකම් හා සංවර්ධන අවශ්‍යතා</div>
 
-  <div id="recordCounter" class="counter-badge">
-    මේ වන විට ලැබී ඇති අයදුම්පත් ගණන: <span id="totalCount">ගණනය කරමින්...</span>
+<div class="main-wrapper">
+  <!-- Header Banner -->
+  <div class="hero-header">
+    <h1><i class="bi bi-clipboard2-data-fill me-2"></i>ප්‍රජා කුටුම්භ සමීක්ෂණය - 2027</h1>
+    <div class="hero-sub">ගමේ පොදු යටිතල පහසුකම් හා සංවර්ධන අවශ්‍යතා තොරතුරු පද්ධතිය</div>
+    <div class="counter-pill">
+      <i class="bi bi-people-fill"></i>
+      <span>මේ වන විට ලැබී ඇති අයදුම්පත් ගණන:</span>
+      <span id="totalCount" class="badge-num">...</span>
+    </div>
   </div>
 
-  <div class="sec-title">01. ගමේ හා නිලධාරියාගේ මූලික තොරතුරු (1–7)</div>
+  <!-- Live Alert Area -->
+  <div id="alertContainer"></div>
 
-  <div id="profileDisplay" class="saved-banner" style="display:none;">
-    <div><strong>සුරකින ලද ගම/වසම:</strong> <span id="dispSummary"></span></div>
-    <button type="button" class="btn btn-secondary" onclick="editProfile()">1–7 තොරතුරු වෙනස් කරන්න</button>
-  </div>
+  <!-- SECTION 01 -->
+  <div class="section-card">
+    <div class="sec-header-1">
+      <i class="bi bi-geo-alt-fill me-2"></i>01. ගමේ හා නිලධාරියාගේ මූලික තොරතුරු (1–7)
+    </div>
+    <div class="card-body p-3 p-md-4">
+      <div id="profileDisplay" class="saved-banner mb-2" style="display:none;">
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
+          <div><i class="bi bi-check-circle-fill me-1"></i><strong>සුරකින ලද ගම/වසම:</strong> <span id="dispSummary"></span></div>
+          <button type="button" class="btn btn-sm btn-outline-success fw-bold" onclick="editProfile()">
+            <i class="bi bi-pencil-square me-1"></i>වෙනස් කරන්න
+          </button>
+        </div>
+      </div>
 
-  <div id="profileFields">
-    <label>1. දිස්ත්‍රික්කය *</label>
-    <input type="text" id="district" value="Monaragala" required>
+      <div id="profileFields">
+        <div class="row g-2">
+          <div class="col-md-6">
+            <label class="form-label">1. දිස්ත්‍රික්කය *</label>
+            <input type="text" class="form-control" id="district" value="Monaragala" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">2. ප්‍රාදේශීය ලේකම් කොට්ඨාසය *</label>
+            <input type="text" class="form-control" id="dsDivision" value="Monaragala" required>
+          </div>
+        </div>
 
-    <label>2. ප්‍රාදේශීය ලේකම් කොට්ඨාසය *</label>
-    <input type="text" id="dsDivision" value="Monaragala" required>
+        <label class="form-label">3. ග්‍රාම නිලධාරී වසම හා අංකය *</label>
+        <select class="form-select" id="gnDivision" required>
+          <option value="">-- ග්‍රාම නිලධාරී වසම තෝරන්න --</option>
+          <option value="125 - කහම්බාන">125 - කහම්බාන</option>
+          <option value="125 A - මාරාව">125 A - මාරාව</option>
+          <option value="125 B - තෙනගල්ලන්ද">125 B - තෙනගල්ලන්ද</option>
+          <option value="127 - කොලොන්වින්න">127 - කොලොන්වින්න</option>
+          <option value="127 A - වෙහෙරගල">127 A - වෙහෙරගල</option>
+          <option value="127 B - බෝහිටිය">127 B - බෝහිටිය</option>
+          <option value="129 - මුප්පනේ">129 - මුප්පනේ</option>
+          <option value="129 A - කව්ඩාව">129 A - කව්ඩාව</option>
+          <option value="129 B - මොනරාගල">129 B - මොනරාගල</option>
+          <option value="129 C - හුලංදාව">129 C - හුලංදාව</option>
+          <option value="129 D - හිදිකිවුල">129 D - හිදිකිවුල</option>
+          <option value="129 E - මාගන්දනමුල්ල">129 E - මාගන්දනමුල්ල</option>
+          <option value="129 F - විහාරමුල්ල">129 F - විහාරමුල්ල</option>
+          <option value="129 G - හුලංදාව වම">129 G - හුලංදාව වම</option>
+          <option value="129 H - හුලංදාව දකුණ">129 H - හුලංදාව දකුණ</option>
+          <option value="129 I - අලියාවත්ත">129 I - අලියාවත්ත</option>
+          <option value="130 - බටුගම්මන">130 - බටුගම්මන</option>
+          <option value="130 A - නක්කල">130 A - නක්කල</option>
+          <option value="130 B - වැලියාය">130 B - වැලියාය</option>
+          <option value="130 C - දෙබැද්දේකිවුල">130 C - දෙබැද්දේකිවුල</option>
+          <option value="130 D - රත්තනපිටිය">130 D - රත්තනපිටිය</option>
+          <option value="130 E - ටැංවත්ත">130 E - ටැංවත්ත</option>
+          <option value="130 F - ගුරුහෙල">130 F - ගුරුහෙල</option>
+          <option value="131 A - කුඹුක්කන">131 A - කුඹුක්කන</option>
+          <option value="131 B - මදුරුකැටිය">131 B - මදුරුකැටිය</option>
+          <option value="131 C - හොරොම්බුව">131 C - හොරොම්බුව</option>
+        </select>
 
-    <label>3. ග්‍රාම නිලධාරී වසම හා අංකය *</label>
-    <select id="gnDivision" required>
-      <option value="">-- ග්‍රාම නිලධාරී වසම තෝරන්න --</option>
-      <option value="125 - කහම්බාන">125 - කහම්බාන</option>
-      <option value="125 A - මාරාව">125 A - මාරාව</option>
-      <option value="125 B - තෙනගල්ලන්ද">125 B - තෙනගල්ලන්ද</option>
-      <option value="127 - කොලොන්වින්න">127 - කොලොන්වින්න</option>
-      <option value="127 A - වෙහෙරගල">127 A - වෙහෙරගල</option>
-      <option value="127 B - බෝහිටිය">127 B - බෝහිටිය</option>
-      <option value="129 - මුප්පනේ">129 - මුප්පනේ</option>
-      <option value="129 A - කව්ඩාව">129 A - කව්ඩාව</option>
-      <option value="129 B - මොනරාගල">129 B - මොනරාගල</option>
-      <option value="129 C - හුලංදාව">129 C - හුලංදාව</option>
-      <option value="129 D - හිදිකිවුල">129 D - හිදිකිවුල</option>
-      <option value="129 E - මාගන්දනමුල්ල">129 E - මාගන්දනමුල්ල</option>
-      <option value="129 F - විහාරමුල්ල">129 F - විහාරමුල්ල</option>
-      <option value="129 G - හුලංදාව වම">129 G - හුලංදාව වම</option>
-      <option value="129 H - හුලංදාව දකුණ">129 H - හුලංදාව දකුණ</option>
-      <option value="129 I - අලියාවත්ත">129 I - අලියාවත්ත</option>
-      <option value="130 - බටුගම්මන">130 - බටුගම්මන</option>
-      <option value="130 A - නක්කල">130 A - නක්කල</option>
-      <option value="130 B - වැලියාය">130 B - වැලියාය</option>
-      <option value="130 C - දෙබැද්දේකිවුල">130 C - දෙබැද්දේකිවුල</option>
-      <option value="130 D - රත්තනපිටිය">130 D - රත්තනපිටිය</option>
-      <option value="130 E - ටැංවත්ත">130 E - ටැංවත්ත</option>
-      <option value="130 F - ගුරුහෙල">130 F - ගුරුහෙල</option>
-      <option value="131 A - කුඹුක්කන">131 A - කුඹුක්කන</option>
-      <option value="131 B - මදුරුකැටිය">131 B - මදුරුකැටිය</option>
-      <option value="131 C - හොරොම්බුව">131 C - හොරොම්බුව</option>
-    </select>
+        <label class="form-label">4. ගමේ නම *</label>
+        <input type="text" class="form-control" id="village" required>
 
-    <label>4. ගමේ නම *</label>
-    <input type="text" id="village" required>
-    <label>5. ගමේ මුළු පවුල් සංඛ්‍යාව *</label>
-    <input type="number" id="totalFamilies" required>
-    <label>6. ගමේ මුළු ජන සංඛ්‍යාව (දළ වශයෙන්)</label>
-    <input type="number" id="totalPopulation">
-    <label>7. නිලධාරියාගේ / ප්‍රජා නායකයාගේ නම සහ දුරකථන අංකය *</label>
-    <input type="text" id="officerInfo" placeholder="උදා: කේ. පෙරේරා - 0771234567" required>
-    <button type="button" class="btn btn-secondary" onclick="saveProfileLocal()">1–7 තොරතුරු මෙම දුරකථනයේ සුරකින්න (Save)</button>
+        <div class="row g-2">
+          <div class="col-md-6">
+            <label class="form-label">5. ගමේ මුළු පවුල් සංඛ්‍යාව *</label>
+            <input type="number" class="form-control" id="totalFamilies" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">6. ගමේ මුළු ජන සංඛ්‍යාව (දළ වශයෙන්)</label>
+            <input type="number" class="form-control" id="totalPopulation">
+          </div>
+        </div>
+
+        <label class="form-label">7. නිලධාරියාගේ / ප්‍රජා නායකයාගේ නම සහ දුරකථන අංකය *</label>
+        <input type="text" class="form-control" id="officerInfo" placeholder="උදා: කේ. පෙරේරා - 0771234567" required>
+
+        <button type="button" class="btn btn-success mt-3 fw-bold" onclick="saveProfileLocal()">
+          <i class="bi bi-save2 me-1"></i>1–7 තොරතුරු මෙම දුරකථනයේ සුරකින්න (Save)
+        </button>
+      </div>
+    </div>
   </div>
 
   <form id="surveyForm" onsubmit="submitForm(event)">
-    <div class="sec-title">02. මාර්ග, ඉදිකිරීම්, ජලය හා විදුලිය (8–13)</div>
+    <!-- SECTION 02 -->
+    <div class="section-card">
+      <div class="sec-header-2">
+        <i class="bi bi-signpost-split-fill me-2"></i>02. මාර්ග, ඉදිකිරීම්, ජලය, වැව් හා විදුලිය (8–13)
+      </div>
+      <div class="card-body p-3 p-md-4">
 
-    <label>8. ගමේ ප්‍රධාන සහ අතුරු මාර්ගවල පොදු තත්ත්වය</label>
-    <select id="roadCondition">
-      <option value="ඉතා හොඳයි (කාපට් / කොන්ක්‍රීට්)">ඉතා හොඳයි (කාපට් / කොන්ක්‍රීට් කර ඇත)</option>
-      <option value="සාමාන්‍යයි (කොටසක් පමණක් සකස් කර ඇත)">සාමාන්‍යයි (කොටසක් පමණක් සකස් කර ඇත)</option>
-      <option value="දුර්වලයි (බොරළු / අබලන් මාර්ග බහුලයි)">දුර්වලයි (බොරළු / අබලන් මාර්ග බහුලයි)</option>
-    </select>
+        <label class="form-label">8. ගමේ ප්‍රධාන සහ අතුරු මාර්ගවල පොදු තත්ත්වය</label>
+        <select class="form-select" id="roadCondition">
+          <option value="ඉතා හොඳයි (කාපට් / කොන්ක්‍රීට්)">ඉතා හොඳයි (කාපට් / කොන්ක්‍රීට් කර ඇත)</option>
+          <option value="සාමාන්‍යයි (කොටසක් පමණක් සකස් කර ඇත)">සාමාන්‍යයි (කොටසක් පමණක් සකස් කර ඇත)</option>
+          <option value="දුර්වලයි (බොරළු / අබලන් මාර්ග බහුලයි)">දුර්වලයි (බොරළු / අබලන් මාර්ග බහුලයි)</option>
+        </select>
 
-    <label>9. අලුත්වැඩියා කළ යුතු හෝ අලුතින් ඉදිකළ යුතු ඉදිකිරීම් තෝරන්න:</label>
-    <div class="cb-group" id="structGroup">
-      <label class="cb-item"><input type="checkbox" value="1. සපත්තු පාලම්" onchange="toggleQ9Details()"> <span>1. සපත්තු පාලම්</span></label>
-      <label class="cb-item"><input type="checkbox" value="2. බෝක්කු" onchange="toggleQ9Details()"> <span>2. බෝක්කු</span></label>
-      <label class="cb-item"><input type="checkbox" value="3. කල්වට් බෝක්කු" onchange="toggleQ9Details()"> <span>3. කල්වට් බෝක්කු</span></label>
-      <label class="cb-item"><input type="checkbox" value="4. පාලම්" onchange="toggleQ9Details()"> <span>4. පාලම්</span></label>
-      <label class="cb-item"><input type="checkbox" value="5. පැති බැමි / කාණු පද්ධති" onchange="toggleQ9Details()"> <span>5. පැති බැමි / කාණු පද්ධති</span></label>
-      <label class="cb-item"><input type="checkbox" value="6. ඒදඬු" onchange="toggleQ9Details()"> <span>6. ඒදඬු</span></label>
-      <label class="cb-item"><input type="checkbox" value="7. මාර්ග කාපට් / කොන්ක්‍රීට් කිරීම" onchange="toggleQ9Details()"> <span>7. මාර්ග කොන්ක්‍රීට්/කාපට්</span></label>
+        <!-- Question 09 -->
+        <label class="form-label">9. අලුත්වැඩියා කළ යුතු හෝ අලුතින් ඉදිකළ යුතු ඉදිකිරීම් තෝරන්න:</label>
+        <div class="cb-grid" id="structGroup">
+          <label class="cb-card">
+            <input type="checkbox" value="1. සපත්තු පාලම්" data-detail-label="සපත්තු පාලම් කීයද / දිග කොපමණද?" data-placeholder="උදා: සපත්තු පාලම් 2 (දිග මීටර් 15)" onchange="updateQ9DynamicFields()">
+            <span>1. සපත්තු පාලම්</span>
+          </label>
+          <label class="cb-card">
+            <input type="checkbox" value="2. බෝක්කු" data-detail-label="බෝක්කු කීයද?" data-placeholder="උදා: බෝක්කු 3ක්" onchange="updateQ9DynamicFields()">
+            <span>2. බෝක්කු</span>
+          </label>
+          <label class="cb-card">
+            <input type="checkbox" value="3. කල්වට් බෝක්කු" data-detail-label="කල්වට් බෝක්කු කීයද?" data-placeholder="උදා: කල්වට් බෝක්කු 2ක්" onchange="updateQ9DynamicFields()">
+            <span>3. කල්වට් බෝක්කු</span>
+          </label>
+          <label class="cb-card">
+            <input type="checkbox" value="4. පාලම්" data-detail-label="පාලම් කීයද / දිග කොපමණද?" data-placeholder="උදා: පාලම් 1 (දිග මීටර් 20)" onchange="updateQ9DynamicFields()">
+            <span>4. පාලම්</span>
+          </label>
+          <label class="cb-card">
+            <input type="checkbox" value="5. පැති බැමි / කාණු පද්ධති" data-detail-label="පැති බැමි / කාණු පද්ධති කොච්චර දිගද?" data-placeholder="උදා: දිග මීටර් 150ක්" onchange="updateQ9DynamicFields()">
+            <span>5. පැති බැමි / කාණු පද්ධති</span>
+          </label>
+          <label class="cb-card">
+            <input type="checkbox" value="6. ඒදඬු" data-detail-label="ඒදඬු කීයද / දිග කොපමණද?" data-placeholder="උදා: ඒදඬු 2ක් (දිග මීටර් 12)" onchange="updateQ9DynamicFields()">
+            <span>6. ඒදඬු</span>
+          </label>
+          <label class="cb-card">
+            <input type="checkbox" value="7. මාර්ග කාපට් / කොන්ක්‍රීට් කිරීම" data-detail-label="මාර්ගය කොච්චර දිගද? (මීටර් / කි.මී.)" data-placeholder="උදා: දිග මීටර් 500 / කි.මී. 1.2" onchange="updateQ9DynamicFields()">
+            <span>7. මාර්ග කොන්ක්‍රීට්/කාපට්</span>
+          </label>
+        </div>
+
+        <div id="q9Details" class="dynamic-box-blue" style="display:none;">
+          <div class="fw-bold text-primary mb-2"><i class="bi bi-rulers me-1"></i>තෝරාගත් ඉදිකිරීම් වල නිශ්චිත විස්තර:</div>
+          <div id="q9DynamicInputs"></div>
+
+          <label class="form-label">මාර්ගයේ / ස්ථානයේ නම:</label>
+          <input type="text" class="form-control" id="roadName" placeholder="මාර්ගයේ නම සඳහන් කරන්න">
+
+          <div class="row g-2">
+            <div class="col-md-6">
+              <label class="form-label">භාවිතා කරන පවුල් සංඛ්‍යාව:</label>
+              <input type="number" class="form-control" id="roadFamilies" placeholder="උදා: 45">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">දළ ඇස්තමේන්තු මුදල:</label>
+              <select class="form-select" id="estimatedCost">
+                <option value="1. රු.මි 0.5 - අඩු">1. රු.මි 0.5 - අඩු</option>
+                <option value="2. රු.මි 1.00 - 2.00">2. රු.මි 1.00 - 2.00</option>
+                <option value="3. රු.මි 2.00 - 3.00">3. රු.මි 2.00 - 3.00</option>
+                <option value="4. රු.මි 5.00 - වැඩි">4. රු.මි 5.00 - වැඩි</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 10 -->
+        <label class="form-label">10(අ). ගමට පවතින පොදු පානීය ජල මූලාශ්‍ර</label>
+        <div class="cb-grid" id="waterGroup">
+          <label class="cb-card"><input type="checkbox" value="ජාතික ජල සම්පාදන නල ජලය"> <span>ජාතික ජල සම්පාදන නල ජලය</span></label>
+          <label class="cb-card"><input type="checkbox" value="ප්‍රජා ජල ව්‍යාපෘති"> <span>ප්‍රජා ජල ව්‍යාපෘති</span></label>
+          <label class="cb-card"><input type="checkbox" value="RO ජල පෙරහන් මධ්‍යස්ථාන"> <span>RO ජල පෙරහන් මධ්‍යස්ථාන</span></label>
+          <label class="cb-card"><input type="checkbox" value="පොදු ළිං / නළ ළිං"> <span>පොදු ළිං / නළ ළිං</span></label>
+          <label class="cb-card"><input type="checkbox" value="ස්වභාවික උල්පත් / වැව්"> <span>ස්වභාවික උල්පත් / වැව්</span></label>
+        </div>
+
+        <label class="form-label">10(ආ). පානීය ජලය නොමැති පවුල් සංඛ්‍යාව *</label>
+        <input type="number" class="form-control" id="noWaterFamilies" min="0" placeholder="පානීය ජලය නොමැති පවුල් ගණන (නැතිනම් 0 යොදන්න)" oninput="toggleNoWaterList()" required>
+
+        <div id="noWaterPeopleBox" class="dynamic-box-amber" style="display:none;">
+          <label class="form-label mt-0 text-dark">
+            <i class="bi bi-droplet-half text-primary me-1"></i>පානීය ජලය නොමැති අයගේ නම් හා දුරකථන අංක (1. 2. 3. 4. 5. ලෙස):
+          </label>
+          <textarea class="form-control" id="noWaterPeopleList" rows="4" placeholder="1. කේ. සුමනපාල - 0771234567&#10;2. ඒ. කමලාවතී - 0719876543&#10;3. ..."></textarea>
+        </div>
+
+        <!-- Question 11 -->
+        <label class="form-label">11. ගම තුළ වැව් / අමුණු තිබේද?</label>
+        <select class="form-select" id="hasTanks" onchange="toggleTankDetails()">
+          <option value="නැත">නැත</option>
+          <option value="තිබේ">තිබේ</option>
+        </select>
+
+        <div id="tankDetailsBox" class="dynamic-box-blue" style="display:none;">
+          <label class="form-label mt-0">ප්‍රතිසංස්කරණය කළ යුතු වැව්, අමුණු හෝ වාරි ඇළ මාර්ග විස්තර:</label>
+          <input type="text" class="form-control" id="irrigationNeeds" placeholder="වැවේ / අමුණේ නම සහ අවශ්‍ය ප්‍රතිසංස්කරණ සඳහන් කරන්න">
+        </div>
+
+        <!-- Question 12 -->
+        <label class="form-label">12(අ). විදුලිය නොමැති නිවාස තිබේද?</label>
+        <select class="form-select" id="hasNoElectricity" onchange="toggleElectricityList()">
+          <option value="නැත (සියලු නිවාස වලට විදුලිය ඇත)">නැත (සියලු නිවාස වලට විදුලිය ඇත)</option>
+          <option value="විදුලිය නොමැති නිවාස ඇත">විදුලිය නොමැති නිවාස ඇත</option>
+        </select>
+
+        <div id="noElectricityPeopleBox" class="dynamic-box-amber" style="display:none;">
+          <label class="form-label mt-0 text-dark">
+            <i class="bi bi-lightning-charge-fill text-warning me-1"></i>විදුලිය නොමැති අයගේ නම් හා දුරකථන අංක (1. 2. 3. ලෙස):
+          </label>
+          <textarea class="form-control" id="noElectricityPeopleList" rows="4" placeholder="1. එම්. නිමල් - 0771122334&#10;2. පී. සිරිපාල - 0765544332&#10;3. ..."></textarea>
+        </div>
+
+        <label class="form-label">12(ආ). විදුලිය නොමැති නිවාස ගණන සහ වීදි ලාම්පු අවශ්‍යතා</label>
+        <input type="text" class="form-control" id="electricityNeeds" placeholder="උදා: විදුලිය නැති නිවාස 4, වීදි ලාම්පු 10 අවශ්‍යයි">
+
+        <!-- Question 13 -->
+        <label class="form-label">13. දුරකථන සහ අන්තර්ජාල සංඥා (Signal) තත්ත්වය</label>
+        <select class="form-select" id="signalStatus">
+          <option value="හොඳින් පවතී">හොඳින් පවතී</option>
+          <option value="සීමිත ප්‍රදේශයකට පමණක් පවතී">සීමිත ප්‍රදේශයකට පමණක් පවතී</option>
+          <option value="ඉතා දුර්වලයි (සංඥා කුළුණු අවශ්‍යයි)">ඉතා දුර්වලයි (සංඥා කුළුණු අවශ්‍යයි)</option>
+        </select>
+      </div>
     </div>
 
-    <div id="q9Details" class="sub-box" style="display:none;">
-      <label>මාර්ගයේ / ස්ථානයේ නම (හෝ අමතර විස්තර):</label>
-      <input type="text" id="roadName" placeholder="මාර්ගයේ නම සඳහන් කරන්න">
+    <!-- SECTION 03 -->
+    <div class="section-card">
+      <div class="sec-header-3">
+        <i class="bi bi-building-check me-2"></i>03. පොදු ස්ථාන, ආපදා, අනතුරු සහිත ස්ථාන හා ඉඩම් හඳුනා ගැනීම (14–20)
+      </div>
+      <div class="card-body p-3 p-md-4">
 
-      <label>මාර්ගය භාවිතා කරන පවුල් සංඛ්‍යාව (දළ වශයෙන්):</label>
-      <input type="number" id="roadFamilies" placeholder="උදා: 45">
+        <label class="form-label">14. ගම තුළ දැනට පවතින පොදු පහසුකම්</label>
+        <div class="cb-grid" id="facilityGroup">
+          <label class="cb-card"><input type="checkbox" value="පාසලක්"> <span>පාසලක්</span></label>
+          <label class="cb-card"><input type="checkbox" value="පෙර පාසලක්"> <span>පෙර පාසලක්</span></label>
+          <label class="cb-card"><input type="checkbox" value="ප්‍රජා ශාලාවක්"> <span>ප්‍රජා ශාලාවක්</span></label>
+          <label class="cb-card"><input type="checkbox" value="ග්‍රාමීය රෝහලක් / සායනයක්"> <span>ග්‍රාමීය රෝහලක් / සායනයක්</span></label>
+          <label class="cb-card"><input type="checkbox" value="පුස්තකාලයක් / ක්‍රීඩා පිටියක්"> <span>පුස්තකාලයක් / ක්‍රීඩා පිටියක්</span></label>
+          <label class="cb-card"><input type="checkbox" value="කෘෂි / කිරි එකතු කිරීමේ මධ්‍යස්ථානයක්"> <span>කෘෂි / කිරි මධ්‍යස්ථානයක්</span></label>
+          <label class="cb-card"><input type="checkbox" value="පොදු සුසාන භූමියක්"> <span>පොදු සුසාන භූමියක්</span></label>
+          <label class="cb-card"><input type="checkbox" value="ආගමික ස්ථාන"> <span>ආගමික ස්ථාන</span></label>
+        </div>
 
-      <label>දළ ඇස්තමේන්තු මුදල තෝරන්න:</label>
-      <select id="estimatedCost">
-        <option value="1. රු.මි 0.5 - අඩු">1. රු.මි 0.5 - අඩු</option>
-        <option value="2. රු.මි 1.00 - 2.00">2. රු.මි 1.00 - 2.00</option>
-        <option value="3. රු.මි 2.00 - 3.00">3. රු.මි 2.00 - 3.00</option>
-        <option value="4. රු.මි 5.00 - වැඩි">4. රු.මි 5.00 - වැඩි</option>
-      </select>
+        <label class="form-label">15. ගමට අත්‍යවශ්‍යම නමුත් දැනට නොමැති පොදු පහසුකම්</label>
+        <input type="text" class="form-control" id="missingFacilities">
+
+        <label class="form-label">16. ගමට බලපාන ප්‍රධාන ස්වභාවික ආපදා / ගැටලු</label>
+        <div class="cb-grid" id="disasterGroup">
+          <label class="cb-card"><input type="checkbox" value="දැඩි නියඟය"> <span>දැඩි නියඟය</span></label>
+          <label class="cb-card"><input type="checkbox" value="ගංවතුර"> <span>ගංවතුර</span></label>
+          <label class="cb-card"><input type="checkbox" value="නායයෑම් අවදානම"> <span>නායයෑම් අවදානම</span></label>
+          <label class="cb-card"><input type="checkbox" value="අලි - මිනිස් ගැටුම"> <span>අලි - මිනිස් ගැටුම</span></label>
+          <label class="cb-card"><input type="checkbox" value="වන සතුන්ගෙන් වගා හානි"> <span>වන සතුන්ගෙන් වගා හානි</span></label>
+          <label class="cb-card"><input type="checkbox" value="විශේෂ ආපදා නොමැත"> <span>විශේෂ ආපදා නොමැත</span></label>
+        </div>
+
+        <label class="form-label">17. ගමට කඩිනමින් ඉටුවිය යුතු ප්‍රමුඛතම සංවර්ධන අවශ්‍යතා 03 (1, 2, 3 ලෙස) *</label>
+        <textarea class="form-control" id="priorities" rows="3" required></textarea>
+
+        <label class="form-label">18. විශේෂ සටහන් / අමතර යෝජනා</label>
+        <textarea class="form-control" id="notes" rows="2"></textarea>
+
+        <!-- Question 19 (New) -->
+        <label class="form-label">19. අනතුරු සහිත ස්ථාන, පාරවල් හෝ වෙනත්</label>
+        <textarea class="form-control" id="dangerousPlaces" rows="2" placeholder="අනතුරුදායක වංගු, කැඩුණු පාලම්, ළිං හෝ වෙනත් අනතුරු සහිත ස්ථාන සඳහන් කරන්න"></textarea>
+
+        <!-- Question 20 (New) -->
+        <label class="form-label">20. ඉඩම් හඳුනා ගැනීම (හඳුනාගත් ප්‍රමාණය අක්කර / පර්චස් / හෙක්ටයාර වලින් සඳහන් කරන්න):</label>
+        <div class="dynamic-box-purple">
+          <div class="mb-2">
+            <label class="form-label mt-0">i. වගා කළ හැකි එහෙත් වගා නොකළ රජයේ ඉඩම් ප්‍රමාණය:</label>
+            <input type="text" class="form-control" id="govUncultivatedLand" placeholder="උදා: අක්කර 15 (හෝ නොමැත)">
+          </div>
+          <div>
+            <label class="form-label mt-2">ii. වගා කළ හැකි එහෙත් වගා නොකළ පෞද්ගලික ඉඩම් ප්‍රමාණය:</label>
+            <input type="text" class="form-control" id="privateUncultivatedLand" placeholder="උදා: අක්කර 08 (හෝ නොමැත)">
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn btn-submit-gradient mt-4">
+          <i class="bi bi-send-fill me-2"></i>තොරතුරු යොමු කරන්න
+        </button>
+      </div>
     </div>
-
-    <label>10(අ). ගමට පවතින පොදු පානීය ජල මූලාශ්‍ර</label>
-    <div class="cb-group" id="waterGroup">
-      <label class="cb-item"><input type="checkbox" value="ජාතික ජල සම්පාදන නල ජලය"> <span>ජාතික ජල සම්පාදන නල ජලය</span></label>
-      <label class="cb-item"><input type="checkbox" value="ප්‍රජා ජල ව්‍යාපෘති"> <span>ප්‍රජා ජල ව්‍යාපෘති</span></label>
-      <label class="cb-item"><input type="checkbox" value="RO ජල පෙරහන් මධ්‍යස්ථාන"> <span>RO ජල පෙරහන් මධ්‍යස්ථාන</span></label>
-      <label class="cb-item"><input type="checkbox" value="පොදු ළිං / නළ ළිං"> <span>පොදු ළිං / නළ ළිං</span></label>
-      <label class="cb-item"><input type="checkbox" value="ස්වභාවික උල්පත් / වැව්"> <span>ස්වභාවික උල්පත් / වැව්</span></label>
-    </div>
-
-    <label>10(ආ). පානීය ජලය නොමැති පවුල් සංඛ්‍යාව *</label>
-    <input type="number" id="noWaterFamilies" placeholder="පානීය ජලය නොමැති පවුල් ගණන" required>
-
-    <label>11. ප්‍රතිසංස්කරණය කළ යුතු වැව්, අමුණු හෝ වාරි ඇළ මාර්ග</label>
-    <input type="text" id="irrigationNeeds">
-
-    <label>12. විදුලිය නොමැති නිවාස ගණන සහ වීදි ලාම්පු අවශ්‍යතා</label>
-    <input type="text" id="electricityNeeds" placeholder="උදා: විදුලිය නැති නිවාස 4, වීදි ලාම්පු 10 අවශ්‍යයි">
-
-    <label>13. දුරකථන සහ අන්තර්ජාල සංඥා (Signal) තත්ත්වය</label>
-    <select id="signalStatus">
-      <option value="හොඳින් පවතී">හොඳින් පවතී</option>
-      <option value="සීමිත ප්‍රදේශයකට පමණක් පවතී">සීමිත ප්‍රදේශයකට පමණක් පවතී</option>
-      <option value="ඉතා දුර්වලයි (සංඥා කුළුණු අවශ්‍යයි)">ඉතා දුර්වලයි (සංඥා කුළුණු අවශ්‍යයි)</option>
-    </select>
-
-    <div class="sec-title">03. පොදු ස්ථාන, ආපදා හා ප්‍රමුඛතා අවශ්‍යතා (14–18)</div>
-
-    <label>14. ගම තුළ දැනට පවතින පොදු පහසුකම්</label>
-    <div class="cb-group" id="facilityGroup">
-      <label class="cb-item"><input type="checkbox" value="පාසලක්"> <span>පාසලක්</span></label>
-      <label class="cb-item"><input type="checkbox" value="පෙර පාසලක්"> <span>පෙර පාසලක්</span></label>
-      <label class="cb-item"><input type="checkbox" value="ප්‍රජා ශාලාවක්"> <span>ප්‍රජා ශාලාවක්</span></label>
-      <label class="cb-item"><input type="checkbox" value="ග්‍රාමීය රෝහලක් / සායනයක්"> <span>ග්‍රාමීය රෝහලක් / සායනයක්</span></label>
-      <label class="cb-item"><input type="checkbox" value="පුස්තකාලයක් / ක්‍රීඩා පිටියක්"> <span>පුස්තකාලයක් / ක්‍රීඩා පිටියක්</span></label>
-      <label class="cb-item"><input type="checkbox" value="කෘෂි / කිරි එකතු කිරීමේ මධ්‍යස්ථානයක්"> <span>කෘෂි / කිරි මධ්‍යස්ථානයක්</span></label>
-      <label class="cb-item"><input type="checkbox" value="පොදු සුසාන භූමියක්"> <span>පොදු සුසාන භූමියක්</span></label>
-      <label class="cb-item"><input type="checkbox" value="ආගමික ස්ථාන"> <span>ආගමික ස්ථාන</span></label>
-    </div>
-
-    <label>15. ගමට අත්‍යවශ්‍යම නමුත් දැනට නොමැති පොදු පහසුකම්</label>
-    <input type="text" id="missingFacilities">
-
-    <label>16. ගමට බලපාන ප්‍රධාන ස්වභාවික ආපදා / ගැටලු</label>
-    <div class="cb-group" id="disasterGroup">
-      <label class="cb-item"><input type="checkbox" value="දැඩි නියඟය"> <span>දැඩි නියඟය</span></label>
-      <label class="cb-item"><input type="checkbox" value="ගංවතුර"> <span>ගංවතුර</span></label>
-      <label class="cb-item"><input type="checkbox" value="නායයෑම් අවදානම"> <span>නායයෑම් අවදානම</span></label>
-      <label class="cb-item"><input type="checkbox" value="අලි - මිනිස් ගැටුම"> <span>අලි - මිනිස් ගැටුම</span></label>
-      <label class="cb-item"><input type="checkbox" value="වන සතුන්ගෙන් වගා හානි"> <span>වන සතුන්ගෙන් වගා හානි</span></label>
-      <label class="cb-item"><input type="checkbox" value="විශේෂ ආපදා නොමැත"> <span>විශේෂ ආපදා නොමැත</span></label>
-    </div>
-
-    <label>17. ගමට කඩිනමින් ඉටුවිය යුතු ප්‍රමුඛතම සංවර්ධන අවශ්‍යතා 03 (1, 2, 3 ලෙස) *</label>
-    <textarea id="priorities" rows="3" required></textarea>
-
-    <label>18. විශේෂ සටහන් / අමතර යෝජනා</label>
-    <textarea id="notes" rows="2"></textarea>
-
-    <button type="submit" id="submitBtn" class="btn">තොරතුරු යොමු කරන්න</button>
   </form>
 </div>
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   const WEB_APP_EXEC_URL = 'https://script.google.com/macros/s/AKfycbxy5pceCvwy7r6xInrBjOUYkVZFaqYQxuQuXYaBgXrHoRQ0_bxQx1__Zf9zI0a5AUgM/exec';
   const profileKeys = ['district', 'dsDivision', 'gnDivision', 'village', 'totalFamilies', 'totalPopulation', 'officerInfo'];
@@ -373,6 +522,19 @@
     loadRecordCount();
   };
 
+  function showCustomAlert(message, type = 'success') {
+    const icon = type === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill';
+    const bgClass = type === 'success' ? 'alert-success border-success' : 'alert-danger border-danger';
+    const alertHTML = `
+      <div class="alert ${bgClass} border-2 shadow-sm alert-dismissible fade show fw-bold" role="alert">
+        <i class="bi ${icon} me-2 fs-5"></i>${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    `;
+    document.getElementById('alertContainer').innerHTML = alertHTML;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   function loadRecordCount() {
     fetch(WEB_APP_EXEC_URL)
       .then(response => response.json())
@@ -396,7 +558,7 @@
     if (!p.dsDivision) p.dsDivision = 'Monaragala';
 
     if (!p.district || !p.gnDivision || !p.village || !p.officerInfo) {
-      alert('කරුණාකර 1, 3, 4 සහ 7 අත්‍යවශ්‍ය තොරතුරු ඇතුළත් කරන්න.');
+      showCustomAlert('කරුණාකර 1, 3, 4 සහ 7 අත්‍යවශ්‍ය තොරතුරු ඇතුළත් කරන්න.', 'danger');
       return false;
     }
     localStorage.setItem('villageProfile2027', JSON.stringify(p));
@@ -415,9 +577,71 @@
     document.getElementById('profileDisplay').style.display = 'none';
   }
 
-  function toggleQ9Details() {
-    const checked = document.querySelectorAll('#structGroup input:checked').length > 0;
-    document.getElementById('q9Details').style.display = checked ? 'block' : 'none';
+  // Dynamic Q9 inputs based on selected checkboxes
+  function updateQ9DynamicFields() {
+    const checkboxes = document.querySelectorAll('#structGroup input:checked');
+    const q9Details = document.getElementById('q9Details');
+    const container = document.getElementById('q9DynamicInputs');
+
+    if (checkboxes.length === 0) {
+      q9Details.style.display = 'none';
+      container.innerHTML = '';
+      return;
+    }
+
+    // Preserve already typed values
+    const existingVals = {};
+    container.querySelectorAll('input').forEach(inp => {
+      existingVals[inp.dataset.structName] = inp.value;
+    });
+
+    q9Details.style.display = 'block';
+    container.innerHTML = '';
+
+    checkboxes.forEach(cb => {
+      const structName = cb.value;
+      const labelText = cb.dataset.detailLabel;
+      const placeholderText = cb.dataset.placeholder;
+      const savedVal = existingVals[structName] || '';
+
+      const div = document.createElement('div');
+      div.className = 'mb-2';
+      div.innerHTML = `
+        <label class="form-label mt-1 text-dark">${structName} — ${labelText}</label>
+        <input type="text" class="form-control q9-dynamic-input" data-struct-name="${structName}" value="${savedVal}" placeholder="${placeholderText}">
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  function getQ9MeasurementsSummary() {
+    const inputs = document.querySelectorAll('.q9-dynamic-input');
+    const parts = [];
+    inputs.forEach(inp => {
+      if (inp.value.trim() !== '') {
+        parts.push(inp.dataset.structName + ': ' + inp.value.trim());
+      }
+    });
+    return parts.join(' | ');
+  }
+
+  // Dynamic Q10 No-Water List
+  function toggleNoWaterList() {
+    const count = parseInt(document.getElementById('noWaterFamilies').value, 10);
+    const box = document.getElementById('noWaterPeopleBox');
+    box.style.display = (!isNaN(count) && count > 0) ? 'block' : 'none';
+  }
+
+  // Dynamic Q11 Tanks
+  function toggleTankDetails() {
+    const val = document.getElementById('hasTanks').value;
+    document.getElementById('tankDetailsBox').style.display = (val === 'තිබේ') ? 'block' : 'none';
+  }
+
+  // Dynamic Q12 Electricity List
+  function toggleElectricityList() {
+    const val = document.getElementById('hasNoElectricity').value;
+    document.getElementById('noElectricityPeopleBox').style.display = (val === 'විදුලිය නොමැති නිවාස ඇත') ? 'block' : 'none';
   }
 
   function getCheckedValues(groupId) {
@@ -430,7 +654,7 @@
 
     const btn = document.getElementById('submitBtn');
     btn.disabled = true;
-    btn.innerText = 'යොමු කරමින් පවතී...';
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>යොමු කරමින් පවතී...';
 
     const payload = {
       district: document.getElementById('district').value,
@@ -442,19 +666,27 @@
       officerInfo: document.getElementById('officerInfo').value,
       roadCondition: document.getElementById('roadCondition').value,
       structureTypes: getCheckedValues('structGroup'),
+      structureMeasurements: getQ9MeasurementsSummary(),
       roadName: document.getElementById('roadName').value,
       roadFamilies: document.getElementById('roadFamilies').value,
       estimatedCost: document.getElementById('estimatedCost').value,
       waterSources: getCheckedValues('waterGroup'),
       noWaterFamilies: document.getElementById('noWaterFamilies').value,
+      noWaterPeopleList: document.getElementById('noWaterPeopleList').value,
+      hasTanks: document.getElementById('hasTanks').value,
       irrigationNeeds: document.getElementById('irrigationNeeds').value,
+      hasNoElectricity: document.getElementById('hasNoElectricity').value,
+      noElectricityPeopleList: document.getElementById('noElectricityPeopleList').value,
       electricityNeeds: document.getElementById('electricityNeeds').value,
       signalStatus: document.getElementById('signalStatus').value,
       existingFacilities: getCheckedValues('facilityGroup'),
       missingFacilities: document.getElementById('missingFacilities').value,
       disasters: getCheckedValues('disasterGroup'),
       priorities: document.getElementById('priorities').value,
-      notes: document.getElementById('notes').value
+      notes: document.getElementById('notes').value,
+      dangerousPlaces: document.getElementById('dangerousPlaces').value,
+      govUncultivatedLand: document.getElementById('govUncultivatedLand').value,
+      privateUncultivatedLand: document.getElementById('privateUncultivatedLand').value
     };
 
     fetch(WEB_APP_EXEC_URL, {
@@ -464,17 +696,22 @@
       body: JSON.stringify(payload)
     })
     .then(function() {
-      alert('තොරතුරු සාර්ථකව ඇතුළත් විය!');
+      showCustomAlert('තොරතුරු සාර්ථකව ඇතුළත් විය!', 'success');
       document.getElementById('surveyForm').reset();
       document.getElementById('q9Details').style.display = 'none';
+      document.getElementById('q9DynamicInputs').innerHTML = '';
+      document.getElementById('noWaterPeopleBox').style.display = 'none';
+      document.getElementById('tankDetailsBox').style.display = 'none';
+      document.getElementById('noElectricityPeopleBox').style.display = 'none';
+
       btn.disabled = false;
-      btn.innerText = 'තොරතුරු යොමු කරන්න';
+      btn.innerHTML = '<i class="bi bi-send-fill me-2"></i>තොරතුරු යොමු කරන්න';
       setTimeout(loadRecordCount, 1500);
     })
     .catch(function(err) {
-      alert('දෝෂයක් සිදු විය: ' + err.message);
+      showCustomAlert('දෝෂයක් සිදු විය: ' + err.message, 'danger');
       btn.disabled = false;
-      btn.innerText = 'තොරතුරු යොමු කරන්න';
+      btn.innerHTML = '<i class="bi bi-send-fill me-2"></i>තොරතුරු යොමු කරන්න';
     });
   }
 </script>
