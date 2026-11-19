@@ -36,7 +36,21 @@
     text-align: center;
     color: #475569;
     font-size: 0.9rem;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
+  }
+  .counter-badge {
+    background: #d1fae5;
+    color: #064e3b;
+    border: 1px solid #059669;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto 16px auto;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
   }
   .sec-title {
     background: #ecfdf5;
@@ -153,7 +167,8 @@
       border-radius: 8px;
     }
     h1 { font-size: 1.18rem; }
-    .sub { font-size: 0.85rem; margin-bottom: 14px; }
+    .sub { font-size: 0.85rem; margin-bottom: 10px; }
+    .counter-badge { font-size: 0.85rem; padding: 7px 12px; margin-bottom: 14px; }
     .sec-title { font-size: 0.92rem; padding: 8px 10px; }
     .cb-group {
       grid-template-columns: 1fr;
@@ -174,6 +189,10 @@
 <div class="container">
   <h1>ග්‍රාමීය සංවර්ධන සමීක්ෂණය - 2027</h1>
   <div class="sub">පත්‍රිකා B: ගමේ පොදු යටිතල පහසුකම් හා සංවර්ධන අවශ්‍යතා</div>
+
+  <div id="recordCounter" class="counter-badge">
+    මේ වන විට ලැබී ඇති අයදුම්පත් ගණන: <span id="totalCount">ගණනය කරමින්...</span>
+  </div>
 
   <div class="sec-title">01. ගමේ හා නිලධාරියාගේ මූලික තොරතුරු (1–7)</div>
 
@@ -350,7 +369,25 @@
       if (!document.getElementById('dsDivision').value) document.getElementById('dsDivision').value = 'Monaragala';
       showSavedBanner(p);
     }
+
+    loadRecordCount();
   };
+
+  function loadRecordCount() {
+    fetch(WEB_APP_EXEC_URL)
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          document.getElementById('totalCount').innerText = data.count;
+        } else {
+          document.getElementById('totalCount').innerText = '0';
+        }
+      })
+      .catch(err => {
+        console.error('Count error:', err);
+        document.getElementById('totalCount').innerText = '-';
+      });
+  }
 
   function saveProfileLocal() {
     const p = {};
@@ -432,6 +469,7 @@
       document.getElementById('q9Details').style.display = 'none';
       btn.disabled = false;
       btn.innerText = 'තොරතුරු Google Sheet වෙත යොමු කරන්න';
+      setTimeout(loadRecordCount, 1500);
     })
     .catch(function(err) {
       alert('දෝෂයක් සිදු විය: ' + err.message);
