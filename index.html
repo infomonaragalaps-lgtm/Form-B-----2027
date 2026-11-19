@@ -464,17 +464,17 @@
       body: JSON.stringify(payload)
     })
     .then(function() {
-      alert('තොරතුරු සාර්ථකව Google Sheet වෙත ඇතුළත් විය!');
+      alert('තොරතුරු සාර්ථකව ඇතුළත් විය!');
       document.getElementById('surveyForm').reset();
       document.getElementById('q9Details').style.display = 'none';
       btn.disabled = false;
-      btn.innerText = 'තොරතුරු Google Sheet වෙත යොමු කරන්න';
+      btn.innerText = 'තොරතුරු යොමු කරන්න';
       setTimeout(loadRecordCount, 1500);
     })
     .catch(function(err) {
       alert('දෝෂයක් සිදු විය: ' + err.message);
       btn.disabled = false;
-      btn.innerText = 'තොරතුරු Google Sheet වෙත යොමු කරන්න';
+      btn.innerText = 'තොරතුරු යොමු කරන්න';
     });
   }
 </script>
