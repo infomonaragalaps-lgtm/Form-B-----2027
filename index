@@ -1,1 +1,292 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { font-family: 'Noto Sans Sinhala', sans-serif; background: #f0fdf4; color: #1e293b; margin: 0; padding: 14px; }
+  .container { max-width: 680px; margin: 0 auto; background: #fff; border-radius: 10px; padding: 20px; border-top: 6px solid #064e3b; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+  h1 { color: #064e3b; font-size: 1.35rem; text-align: center; margin-bottom: 4px; }
+  .sub { text-align: center; color: #475569; font-size: 0.9rem; margin-bottom: 18px; }
+  .sec-title { background: #ecfdf5; color: #064e3b; font-weight: bold; padding: 8px 12px; border-left: 4px solid #064e3b; margin: 18px 0 12px 0; border-radius: 4px; }
+  label { display: block; font-weight: 600; margin-top: 10px; font-size: 0.92rem; }
+  input[type="text"], input[type="number"], select, textarea { width: 100%; padding: 9px; margin-top: 4px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box; background: #fff; }
+  .cb-group { margin-top: 6px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .cb-item { font-weight: normal; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; }
+  .btn { background: #064e3b; color: #fff; border: none; padding: 12px 18px; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; width: 100%; margin-top: 16px; }
+  .btn-secondary { background: #0f766e; font-size: 0.85rem; padding: 8px 12px; width: auto; margin-top: 8px; }
+  .saved-banner { background: #d1fae5; border: 1px solid #059669; padding: 12px; border-radius: 6px; margin-bottom: 12px; }
+  .sub-box { background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px; border-radius: 6px; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>ග්‍රාමීය සංවර්ධන සමීක්ෂණය - 2027</h1>
+  <div class="sub">පත්‍රිකා B: ගමේ පොදු යටිතල පහසුකම් හා සංවර්ධන අවශ්‍යතා</div>
 
+  <div class="sec-title">01. ගමේ හා නිලධාරියාගේ මූලික තොරතුරු (1–7)</div>
+
+  <div id="profileDisplay" class="saved-banner" style="display:none;">
+    <div><strong>සුරකින ලද ගම/වසම:</strong> <span id="dispSummary"></span></div>
+    <button type="button" class="btn btn-secondary" onclick="editProfile()">1–7 තොරතුරු වෙනස් කරන්න</button>
+  </div>
+
+  <div id="profileFields">
+    <label>1. දිස්ත්‍රික්කය *</label>
+    <input type="text" id="district" value="Monaragala" required>
+
+    <label>2. ප්‍රාදේශීය ලේකම් කොට්ඨාසය *</label>
+    <input type="text" id="dsDivision" value="Monaragala" required>
+
+    <label>3. ග්‍රාම නිලධාරී වසම හා අංකය *</label>
+    <select id="gnDivision" required>
+      <option value="">-- ග්‍රාම නිලධාරී වසම තෝරන්න --</option>
+      <option value="125 - කහම්බාන">125 - කහම්බාන</option>
+      <option value="125 A - මාරාව">125 A - මාරාව</option>
+      <option value="125 B - තෙනගල්ලන්ද">125 B - තෙනගල්ලන්ද</option>
+      <option value="127 - කොලොන්වින්න">127 - කොලොන්වින්න</option>
+      <option value="127 A - වෙහෙරගල">127 A - වෙහෙරගල</option>
+      <option value="127 B - බෝහිටිය">127 B - බෝහිටිය</option>
+      <option value="129 - මුප්පනේ">129 - මුප්පනේ</option>
+      <option value="129 A - කව්ඩාව">129 A - කව්ඩාව</option>
+      <option value="129 B - මොනරාගල">129 B - මොනරාගල</option>
+      <option value="129 C - හුලංදාව">129 C - හුලංදාව</option>
+      <option value="129 D - හිදිකිවුල">129 D - හිදිකිවුල</option>
+      <option value="129 E - මාගන්දනමුල්ල">129 E - මාගන්දනමුල්ල</option>
+      <option value="129 F - විහාරමුල්ල">129 F - විහාරමුල්ල</option>
+      <option value="129 G - හුලංදාව වම">129 G - හුලංදාව වම</option>
+      <option value="129 H - හුලංදාව දකුණ">129 H - හුලංදාව දකුණ</option>
+      <option value="129 I - අලියාවත්ත">129 I - අලියාවත්ත</option>
+      <option value="130 - බටුගම්මන">130 - බටුගම්මන</option>
+      <option value="130 A - නක්කල">130 A - නක්කල</option>
+      <option value="130 B - වැලියාය">130 B - වැලියාය</option>
+      <option value="130 C - දෙබැද්දේකිවුල">130 C - දෙබැද්දේකිවුල</option>
+      <option value="130 D - රත්තනපිටිය">130 D - රත්තනපිටිය</option>
+      <option value="130 E - ටැංවත්ත">130 E - ටැංවත්ත</option>
+      <option value="130 F - ගුරුහෙල">130 F - ගුරුහෙල</option>
+      <option value="131 A - කුඹුක්කන">131 A - කුඹුක්කන</option>
+      <option value="131 B - මදුරුකැටිය">131 B - මදුරුකැටිය</option>
+      <option value="131 C - හොරොම්බුව">131 C - හොරොම්බුව</option>
+    </select>
+
+    <label>4. ගමේ නම *</label>
+    <input type="text" id="village" required>
+    <label>5. ගමේ මුළු පවුල් සංඛ්‍යාව *</label>
+    <input type="number" id="totalFamilies" required>
+    <label>6. ගමේ මුළු ජන සංඛ්‍යාව (දළ වශයෙන්)</label>
+    <input type="number" id="totalPopulation">
+    <label>7. නිලධාරියාගේ / ප්‍රජා නායකයාගේ නම සහ දුරකථන අංකය *</label>
+    <input type="text" id="officerInfo" placeholder="උදා: කේ. පෙරේරා - 0771234567" required>
+    <button type="button" class="btn btn-secondary" onclick="saveProfileLocal()">1–7 තොරතුරු මෙම දුරකථනයේ සුරකින්න (Save)</button>
+  </div>
+
+  <form id="surveyForm" onsubmit="submitForm(event)">
+    <div class="sec-title">02. මාර්ග, ඉදිකිරීම්, ජලය හා විදුලිය (8–13)</div>
+
+    <label>8. ගමේ ප්‍රධාන සහ අතුරු මාර්ගවල පොදු තත්ත්වය</label>
+    <select id="roadCondition">
+      <option value="ඉතා හොඳයි (කාපට් / කොන්ක්‍රීට්)">ඉතා හොඳයි (කාපට් / කොන්ක්‍රීට් කර ඇත)</option>
+      <option value="සාමාන්‍යයි (කොටසක් පමණක් සකස් කර ඇත)">සාමාන්‍යයි (කොටසක් පමණක් සකස් කර ඇත)</option>
+      <option value="දුර්වලයි (බොරළු / අබලන් මාර්ග බහුලයි)">දුර්වලයි (බොරළු / අබලන් මාර්ග බහුලයි)</option>
+    </select>
+
+    <label>9. අලුත්වැඩියා කළ යුතු හෝ අලුතින් ඉදිකළ යුතු ඉදිකිරීම් තෝරන්න:</label>
+    <div class="cb-group" id="structGroup">
+      <label class="cb-item"><input type="checkbox" value="1. සපත්තු පාලම්" onchange="toggleQ9Details()"> 1. සපත්තු පාලම්</label>
+      <label class="cb-item"><input type="checkbox" value="2. බෝක්කු" onchange="toggleQ9Details()"> 2. බෝක්කු</label>
+      <label class="cb-item"><input type="checkbox" value="3. කල්වට් බෝක්කු" onchange="toggleQ9Details()"> 3. කල්වට් බෝක්කු</label>
+      <label class="cb-item"><input type="checkbox" value="4. පාලම්" onchange="toggleQ9Details()"> 4. පාලම්</label>
+      <label class="cb-item"><input type="checkbox" value="5. පැති බැමි / කාණු පද්ධති" onchange="toggleQ9Details()"> 5. පැති බැමි / කාණු පද්ධති</label>
+      <label class="cb-item"><input type="checkbox" value="6. ඒදඬු" onchange="toggleQ9Details()"> 6. ඒදඬු</label>
+      <label class="cb-item"><input type="checkbox" value="7. මාර්ග කාපට් / කොන්ක්‍රීට් කිරීම" onchange="toggleQ9Details()"> 7. මාර්ග කොන්ක්‍රීට්/කාපට්</label>
+    </div>
+
+    <div id="q9Details" class="sub-box" style="display:none;">
+      <label>මාර්ගයේ / ස්ථානයේ නම (හෝ අමතර විස්තර):</label>
+      <input type="text" id="roadName" placeholder="මාර්ගයේ නම සඳහන් කරන්න">
+
+      <label>මාර්ගය භාවිතා කරන පවුල් සංඛ්‍යාව (දළ වශයෙන්):</label>
+      <input type="number" id="roadFamilies" placeholder="උදා: 45">
+
+      <label>දළ ඇස්තමේන්තු මුදල තෝරන්න:</label>
+      <select id="estimatedCost">
+        <option value="1. රු.මි 0.5 - අඩු">1. රු.මි 0.5 - අඩු</option>
+        <option value="2. රු.මි 1.00 - 2.00">2. රු.මි 1.00 - 2.00</option>
+        <option value="3. රු.මි 2.00 - 3.00">3. රු.මි 2.00 - 3.00</option>
+        <option value="4. රු.මි 5.00 - වැඩි">4. රු.මි 5.00 - වැඩි</option>
+      </select>
+    </div>
+
+    <label>10(අ). ගමට පවතින පොදු පානීය ජල මූලාශ්‍ර</label>
+    <div class="cb-group" id="waterGroup">
+      <label class="cb-item"><input type="checkbox" value="ජාතික ජල සම්පාදන නල ජලය"> ජාතික ජල සම්පාදන නල ජලය</label>
+      <label class="cb-item"><input type="checkbox" value="ප්‍රජා ජල ව්‍යාපෘති"> ප්‍රජා ජල ව්‍යාපෘති</label>
+      <label class="cb-item"><input type="checkbox" value="RO ජල පෙරහන් මධ්‍යස්ථාන"> RO ජල පෙරහන් මධ්‍යස්ථාන</label>
+      <label class="cb-item"><input type="checkbox" value="පොදු ළිං / නළ ළිං"> පොදු ළිං / නළ ළිං</label>
+      <label class="cb-item"><input type="checkbox" value="ස්වභාවික උල්පත් / වැව්"> ස්වභාවික උල්පත් / වැව්</label>
+    </div>
+
+    <label>10(ආ). පානීය ජලය නොමැති පවුල් සංඛ්‍යාව *</label>
+    <input type="number" id="noWaterFamilies" placeholder="පානීය ජලය නොමැති පවුල් ගණන" required>
+
+    <label>11. ප්‍රතිසංස්කරණය කළ යුතු වැව්, අමුණු හෝ වාරි ඇළ මාර්ග</label>
+    <input type="text" id="irrigationNeeds">
+
+    <label>12. විදුලිය නොමැති නිවාස ගණන සහ වීදි ලාම්පු අවශ්‍යතා</label>
+    <input type="text" id="electricityNeeds" placeholder="උදා: විදුලිය නැති නිවාස 4, වීදි ලාම්පු 10 අවශ්‍යයි">
+
+    <label>13. දුරකථන සහ අන්තර්ජාල සංඥා (Signal) තත්ත්වය</label>
+    <select id="signalStatus">
+      <option value="හොඳින් පවතී">හොඳින් පවතී</option>
+      <option value="සීමිත ප්‍රදේශයකට පමණක් පවතී">සීමිත ප්‍රදේශයකට පමණක් පවතී</option>
+      <option value="ඉතා දුර්වලයි (සංඥා කුළුණු අවශ්‍යයි)">ඉතා දුර්වලයි (සංඥා කුළුණු අවශ්‍යයි)</option>
+    </select>
+
+    <div class="sec-title">03. පොදු ස්ථාන, ආපදා හා ප්‍රමුඛතා අවශ්‍යතා (14–18)</div>
+
+    <label>14. ගම තුළ දැනට පවතින පොදු පහසුකම්</label>
+    <div class="cb-group" id="facilityGroup">
+      <label class="cb-item"><input type="checkbox" value="පාසලක්"> පාසලක්</label>
+      <label class="cb-item"><input type="checkbox" value="පෙර පාසලක්"> පෙර පාසලක්</label>
+      <label class="cb-item"><input type="checkbox" value="ප්‍රජා ශාලාවක්"> ප්‍රජා ශාලාවක්</label>
+      <label class="cb-item"><input type="checkbox" value="ග්‍රාමීය රෝහලක් / සායනයක්"> ග්‍රාමීය රෝහලක් / සායනයක්</label>
+      <label class="cb-item"><input type="checkbox" value="පුස්තකාලයක් / ක්‍රීඩා පිටියක්"> පුස්තකාලයක් / ක්‍රීඩා පිටියක්</label>
+      <label class="cb-item"><input type="checkbox" value="කෘෂි / කිරි එකතු කිරීමේ මධ්‍යස්ථානයක්"> කෘෂි / කිරි මධ්‍යස්ථානයක්</label>
+      <label class="cb-item"><input type="checkbox" value="පොදු සුසාන භූමියක්"> පොදු සුසාන භූමියක්</label>
+      <label class="cb-item"><input type="checkbox" value="ආගමික ස්ථාන"> ආගමික ස්ථාන</label>
+    </div>
+
+    <label>15. ගමට අත්‍යවශ්‍යම නමුත් දැනට නොමැති පොදු පහසුකම්</label>
+    <input type="text" id="missingFacilities">
+
+    <label>16. ගමට බලපාන ප්‍රධාන ස්වභාවික ආපදා / ගැටලු</label>
+    <div class="cb-group" id="disasterGroup">
+      <label class="cb-item"><input type="checkbox" value="දැඩි නියඟය"> දැඩි නියඟය</label>
+      <label class="cb-item"><input type="checkbox" value="ගංවතුර"> ගංවතුර</label>
+      <label class="cb-item"><input type="checkbox" value="නායයෑම් අවදානම"> නායයෑම් අවදානම</label>
+      <label class="cb-item"><input type="checkbox" value="අලි - මිනිස් ගැටුම"> අලි - මිනිස් ගැටුම</label>
+      <label class="cb-item"><input type="checkbox" value="වන සතුන්ගෙන් වගා හානි"> වන සතුන්ගෙන් වගා හානි</label>
+      <label class="cb-item"><input type="checkbox" value="විශේෂ ආපදා නොමැත"> විශේෂ ආපදා නොමැත</label>
+    </div>
+
+    <label>17. ගමට කඩිනමින් ඉටුවිය යුතු ප්‍රමුඛතම සංවර්ධන අවශ්‍යතා 03 (1, 2, 3 ලෙස) *</label>
+    <textarea id="priorities" rows="3" required></textarea>
+
+    <label>18. විශේෂ සටහන් / අමතර යෝජනා</label>
+    <textarea id="notes" rows="2"></textarea>
+
+    <button type="submit" id="submitBtn" class="btn">තොරතුරු Google Sheet වෙත යොමු කරන්න</button>
+  </form>
+</div>
+
+<script>
+  const WEB_APP_EXEC_URL = 'https://script.google.com/macros/s/AKfycbxy5pceCvwy7r6xInrBjOUYkVZFaqYQxuQuXYaBgXrHoRQ0_bxQx1__Zf9zI0a5AUgM/exec';
+  const profileKeys = ['district', 'dsDivision', 'gnDivision', 'village', 'totalFamilies', 'totalPopulation', 'officerInfo'];
+
+  window.onload = function() {
+    document.getElementById('district').value = 'Monaragala';
+    document.getElementById('dsDivision').value = 'Monaragala';
+
+    const saved = localStorage.getItem('villageProfile2027');
+    if (saved) {
+      const p = JSON.parse(saved);
+      profileKeys.forEach(k => {
+        if (p[k]) {
+          document.getElementById(k).value = p[k];
+        }
+      });
+      if (!document.getElementById('district').value) document.getElementById('district').value = 'Monaragala';
+      if (!document.getElementById('dsDivision').value) document.getElementById('dsDivision').value = 'Monaragala';
+      showSavedBanner(p);
+    }
+  };
+
+  function saveProfileLocal() {
+    const p = {};
+    profileKeys.forEach(k => { p[k] = document.getElementById(k).value.trim(); });
+    if (!p.district) p.district = 'Monaragala';
+    if (!p.dsDivision) p.dsDivision = 'Monaragala';
+
+    if (!p.district || !p.gnDivision || !p.village || !p.officerInfo) {
+      alert('කරුණාකර 1, 3, 4 සහ 7 අත්‍යවශ්‍ය තොරතුරු ඇතුළත් කරන්න.');
+      return false;
+    }
+    localStorage.setItem('villageProfile2027', JSON.stringify(p));
+    showSavedBanner(p);
+    return true;
+  }
+
+  function showSavedBanner(p) {
+    document.getElementById('profileFields').style.display = 'none';
+    document.getElementById('profileDisplay').style.display = 'block';
+    document.getElementById('dispSummary').innerText = p.village + ' (' + p.gnDivision + ') - ' + p.officerInfo;
+  }
+
+  function editProfile() {
+    document.getElementById('profileFields').style.display = 'block';
+    document.getElementById('profileDisplay').style.display = 'none';
+  }
+
+  function toggleQ9Details() {
+    const checked = document.querySelectorAll('#structGroup input:checked').length > 0;
+    document.getElementById('q9Details').style.display = checked ? 'block' : 'none';
+  }
+
+  function getCheckedValues(groupId) {
+    return Array.from(document.querySelectorAll('#' + groupId + ' input:checked')).map(cb => cb.value).join(', ');
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    if (!saveProfileLocal()) return;
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerText = 'යොමු කරමින් පවතී...';
+
+    const payload = {
+      district: document.getElementById('district').value,
+      dsDivision: document.getElementById('dsDivision').value,
+      gnDivision: document.getElementById('gnDivision').value,
+      village: document.getElementById('village').value,
+      totalFamilies: document.getElementById('totalFamilies').value,
+      totalPopulation: document.getElementById('totalPopulation').value,
+      officerInfo: document.getElementById('officerInfo').value,
+      roadCondition: document.getElementById('roadCondition').value,
+      structureTypes: getCheckedValues('structGroup'),
+      roadName: document.getElementById('roadName').value,
+      roadFamilies: document.getElementById('roadFamilies').value,
+      estimatedCost: document.getElementById('estimatedCost').value,
+      waterSources: getCheckedValues('waterGroup'),
+      noWaterFamilies: document.getElementById('noWaterFamilies').value,
+      irrigationNeeds: document.getElementById('irrigationNeeds').value,
+      electricityNeeds: document.getElementById('electricityNeeds').value,
+      signalStatus: document.getElementById('signalStatus').value,
+      existingFacilities: getCheckedValues('facilityGroup'),
+      missingFacilities: document.getElementById('missingFacilities').value,
+      disasters: getCheckedValues('disasterGroup'),
+      priorities: document.getElementById('priorities').value,
+      notes: document.getElementById('notes').value
+    };
+
+    fetch(WEB_APP_EXEC_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    })
+    .then(function() {
+      alert('තොරතුරු සාර්ථකව Google Sheet වෙත ඇතුළත් විය!');
+      document.getElementById('surveyForm').reset();
+      document.getElementById('q9Details').style.display = 'none';
+      btn.disabled = false;
+      btn.innerText = 'තොරතුරු Google Sheet වෙත යොමු කරන්න';
+    })
+    .catch(function(err) {
+      alert('දෝෂයක් සිදු විය: ' + err.message);
+      btn.disabled = false;
+      btn.innerText = 'තොරතුරු Google Sheet වෙත යොමු කරන්න';
+    });
+  }
+</script>
+</body>
+</html>
